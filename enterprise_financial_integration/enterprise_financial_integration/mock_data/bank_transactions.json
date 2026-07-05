@@ -1,0 +1,10 @@
+[
+  {"txn_id": "BNK-9001", "amount": 4500.00, "currency": "USD", "date": "2026-06-02", "counterparty": "Acme Supplies Ltd", "type": "debit"},
+  {"txn_id": "BNK-9002", "amount": 1280.50, "currency": "USD", "date": "2026-06-04", "counterparty": "Globex Corp", "type": "debit"},
+  {"txn_id": "BNK-9003", "amount": 950.00, "currency": "USD", "date": "2026-06-06", "counterparty": "Initech LLC", "type": "debit"},
+  {"txn_id": "BNK-9004", "amount": 3195.00, "currency": "USD", "date": "2026-06-08", "counterparty": "Umbrella Holdings", "type": "debit"},
+  {"txn_id": "BNK-9005", "amount": 12000.00, "currency": "USD", "date": "2026-06-13", "counterparty": "Wayne Enterprises", "type": "debit"},
+  {"txn_id": "BNK-9006", "amount": 25.00, "currency": "USD", "date": "2026-06-14", "counterparty": "Bank Fees", "type": "debit"},
+  {"txn_id": "BNK-9007", "amount": 500.00, "currency": "USD", "date": "2026-06-20", "counterparty": "Unknown Vendor", "type": "debit"},
+  {"txn_id": "BNK-9008", "amount": 2100.75, "currency": "USD", "date": "2026-06-19", "counterparty": "Stark Industries", "type": "debit"}
+]

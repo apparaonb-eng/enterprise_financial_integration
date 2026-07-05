@@ -1,0 +1,10 @@
+[
+  {"invoice_id": "INV-1001", "amount": 4500.00, "currency": "USD", "date": "2026-06-01", "counterparty": "Acme Supplies Ltd", "status": "issued"},
+  {"invoice_id": "INV-1002", "amount": 1280.50, "currency": "USD", "date": "2026-06-03", "counterparty": "Globex Corp", "status": "issued"},
+  {"invoice_id": "INV-1003", "amount": 950.00, "currency": "USD", "date": "2026-06-05", "counterparty": "Initech LLC", "status": "issued"},
+  {"invoice_id": "INV-1004", "amount": 3200.00, "currency": "USD", "date": "2026-06-07", "counterparty": "Umbrella Holdings", "status": "issued"},
+  {"invoice_id": "INV-1005", "amount": 675.25, "currency": "USD", "date": "2026-06-10", "counterparty": "Acme Supplies Ltd", "status": "issued"},
+  {"invoice_id": "INV-1006", "amount": 12000.00, "currency": "USD", "date": "2026-06-12", "counterparty": "Wayne Enterprises", "status": "issued"},
+  {"invoice_id": "INV-1007", "amount": 430.00, "currency": "USD", "date": "2026-06-15", "counterparty": "Globex Corp", "status": "issued"},
+  {"invoice_id": "INV-1008", "amount": 2100.75, "currency": "USD", "date": "2026-06-18", "counterparty": "Stark Industries", "status": "issued"}
+]

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enterprise Financial Integration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enterprise Financial Integration Hub</h1>
+        <p class="subtitle">Unified view across ERP, Bank, and Ledger systems.</p>
+
+        <div class="button-row">
+            <button onclick="runSync()">🔄 Sync All Systems</button>
+            <button onclick="runReconcile()">🔗 Run Reconciliation</button>
+            <button onclick="location.reload()">⟳ Refresh Dashboard</button>
+        </div>
+
+        <div id="action-status" class="alert" style="display:none;"></div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Total Transactions</span>
+                <span class="stat-value">{{ total }}</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">ERP</span>
+                <span class="stat-value">{{ by_source.ERP }}</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Bank</span>
+                <span class="stat-value">{{ by_source.BANK }}</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Ledger</span>
+                <span class="stat-value">{{ by_source.LEDGER }}</span>
+            </div>
+        </div>
+
+        <h2>Reconciliation Status</h2>
+        <div class="stats-grid">
+            <div class="stat-card status-matched">
+                <span class="stat-label">Matched</span>
+                <span class="stat-value">{{ by_status.matched }}</span>
+            </div>
+            <div class="stat-card status-unmatched">
+                <span class="stat-label">Unmatched</span>
+                <span class="stat-value">{{ by_status.unmatched }}</span>
+            </div>
+            <div class="stat-card status-discrepancy">
+                <span class="stat-label">Discrepancies</span>
+                <span class="stat-value">{{ by_status.discrepancy }}</span>
+            </div>
+        </div>
+
+        {% if last_sync %}
+        <p class="meta-info">Last sync: {{ last_sync.synced_at }}</p>
+        {% endif %}
+        {% if last_reconciliation %}
+        <p class="meta-info">Last reconciliation: {{ last_reconciliation.run_at }}</p>
+        {% endif %}
+
+        <hr>
+        <details open>
+            <summary>API Reference</summary>
+            <pre>POST /api/sync                      # pull latest data from all connectors
+GET  /api/transactions?source=BANK  # list transactions, optional filters
+POST /api/reconcile                 # run cross-system reconciliation
+GET  /api/reconciliation/report     # get last reconciliation report
+POST /api/reset                     # wipe DB (demo/testing)
+GET  /api/health                    # health check</pre>
+        </details>
+    </div>
+
+    <script>
+        function showStatus(message, isError) {
+            const el = document.getElementById('action-status');
+            el.textContent = message;
+            el.style.display = 'block';
+            el.className = 'alert ' + (isError ? 'alert-error' : 'alert-success');
+        }
+
+        async function runSync() {
+            showStatus('Syncing...', false);
+            try {
+                const res = await fetch('/api/sync', { method: 'POST' });
+                const data = await res.json();
+                showStatus(`Synced — ERP: ${data.ERP}, BANK: ${data.BANK}, LEDGER: ${data.LEDGER}`, false);
+                setTimeout(() => location.reload(), 1200);
+            } catch (e) {
+                showStatus('Sync failed: ' + e, true);
+            }
+        }
+
+        async function runReconcile() {
+            showStatus('Reconciling...', false);
+            try {
+                const res = await fetch('/api/reconcile', { method: 'POST' });
+                const data = await res.json();
+                showStatus(`Reconciliation complete — Matched: ${data.matched_count}, Unmatched: ${data.unmatched_count}, Discrepancies: ${data.discrepancy_count}`, false);
+                setTimeout(() => location.reload(), 1200);
+            } catch (e) {
+                showStatus('Reconciliation failed: ' + e, true);
+            }
+        }
+    </script>
+</body>
+</html>

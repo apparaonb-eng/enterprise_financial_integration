@@ -1,0 +1,8 @@
+[
+  {"entry_id": "GL-5001", "amount": 4500.00, "currency": "USD", "date": "2026-06-01", "counterparty": "Acme Supplies Ltd", "account": "Accounts Payable"},
+  {"entry_id": "GL-5002", "amount": 1280.50, "currency": "USD", "date": "2026-06-03", "counterparty": "Globex Corp", "account": "Accounts Payable"},
+  {"entry_id": "GL-5003", "amount": 950.00, "currency": "USD", "date": "2026-06-05", "counterparty": "Initech LLC", "account": "Accounts Payable"},
+  {"entry_id": "GL-5004", "amount": 3200.00, "currency": "USD", "date": "2026-06-07", "counterparty": "Umbrella Holdings", "account": "Accounts Payable"},
+  {"entry_id": "GL-5005", "amount": 12000.00, "currency": "USD", "date": "2026-06-12", "counterparty": "Wayne Enterprises", "account": "Accounts Payable"},
+  {"entry_id": "GL-5006", "amount": 2100.75, "currency": "USD", "date": "2026-06-18", "counterparty": "Stark Industries", "account": "Accounts Payable"}
+]
